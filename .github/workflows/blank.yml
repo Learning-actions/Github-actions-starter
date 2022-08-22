@@ -27,7 +27,10 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo "s3:"/""/"${{secrets.S3_BUCKET}}"/"new"/"'traffic_${GITHUB_SHA_SHORT}'.py"
+        run: GITHUB_SHA=sbdhcbdhcbdshbchd773e3udn
+             GITHUB_SHA_SHORT=$(echo $GITHUB_SHA ) >> $GITHUB_ENV
+             echo $GITHUB_SHA_SHORT
+             echo "s3:"/""/"${{secrets.S3_BUCKET}}"/"new"/"traffic_'${GITHUB_SHA_SHORT}'.py"
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
